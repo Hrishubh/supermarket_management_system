@@ -1,38 +1,309 @@
-.App {
-  text-align: center;
+* {
+    padding: 0%;
+    margin: 0%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HEADER */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav a {
+    text-decoration: underline;
+    padding: 1vh 4vw;
+    font-family: "Belleza", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc(15px + 1vh);
+    color: #000080;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#heading-topic {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.App-link {
-  color: #61dafb;
+#heading-logo {
+    position: relative;
+    padding-right: 0px;
+    transform: translateX(-50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header-hr {
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 0.25vh solid #000080;
+}
+
+.header-mainDiv {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.header-images {
+    display: inline-block;
+    animation: slide 15s linear infinite;
+    overflow: hidden;
+}
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.header-images2 {
+    display: inline-block;
+    animation: slide2 15s linear infinite;
+    animation-delay: 7.5s;
+    overflow: hidden;
+}
+@keyframes slide2 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+.header-images img,
+.header-images2 img {
+    padding: 1vh 2vw;
+    height: "15vh";
+    width: "10vw";
+}
+
+/* MAIN */
+.main-wrapper {
+    display: flex;
+    height: 61vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-navigator {
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button1,
+.button2,.button2-link,
+.button1-link {
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    border: none;
+    color: red;
+    font-family: "Belleza", sans-serif;
+    font-size: calc(15px + 0.75vw);
+}
+.button1 {
+    margin-left: -13vw;
+    padding-right: 13vw;
+}
+
+.button2 {
+    margin-right: -13vw;
+}
+
+/* HomePage */
+.homepage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 35vh;
+    position: relative;
+    top: 3vh;
+    left: 2vw;
+    background-color: red;
+    box-shadow: -3vw -5vh #000080, 0 1px 0 red, 0 2px 0 red, 0 3px 0 red,
+        0 4px 0 red, 0 5px 0 red, 0 6px 1px rgba(0, 0, 0, 0.1),
+        0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
+        0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-container h1 {
+    font-family: "Belleza", sans-serif;
+    color: white;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+        0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+        0 20px 20px rgba(0, 0, 0, 0.15);
+    font-size: calc(15px + 6vw);
+    text-align: center;
+}
+
+/* login */
+.main-wrapper {
+    display: flex;
+    height:61vh;
+    width: 100vw;
+}
+
+.login-container {
+    justify-content: center;
+    align-items: center;
+    width: 55vw;
+    height: 45vh;
+    position: relative;
+    top: 2vh;
+    background-color: #000080;
+    border-radius: 7px;
+}
+
+
+.login-heading {
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    align-items: center;
+}
+
+.login-heading h1 {
+    font-family: "Belleza", sans-serif;
+    display: block;
+    text-decoration:wavy;
+    color: red;
+    padding-top: 2vh;
+    font-size: calc(18px + 1.9vw);
+    /* text-align: center;
+    align-items: center; */
+}
+
+.login-heading img {
+    display: block;
+    width: calc(18px + 1.9vw);
+    /* text-align: center;
+    align-items: center; */
+}
+
+.login-details {
+    display: flex;
+    flex: 60% 60%;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: normal;
+    align-items: center;
+}
+
+.login-form p {
+    color: red;
+    font-size: 1.75vw;
+    padding-top: 3vh;
+}
+
+.login-form p input {
+    width: 70%;
+}
+
+.login-form button {
+    background-color: #e7886a;
+    border: none;
+    color: black;
+    padding: 5vh 7vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 3.25vh;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/* products */
+.main-wrapper2 {
+    display: flex;
+    height: 61vh;
+    width: 100vw;
+}
+
+.main-products-wrapper {
+    display: flex;
+    height: 20vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.75vh;
+}
+
+.products-container {
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 20vh;
+    position: relative;
+    top: 2vh;
+    background-color: #000080;
+    border-radius: 7px;
+}
+
+.products-heading {
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    align-items: center;
+}
+
+.products-heading h1 {
+    font-family: "Belleza", sans-serif;
+    display: block;
+    text-decoration:wavy;
+    color: red;
+    font-size: calc(14px + 1.1vw);
+    /* text-align: center;
+    align-items: center; */
+}
+
+.products-form p {
+    color: red;
+    font-size: 1.25vw;
+}
+
+.products-form p input {
+    width: 70%;
+}
+
+.products-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.products-buttons button {
+    background-color: #e7886a;
+    border: none;
+    color: black;
+    text-align: center;
+    padding: 1.5vh 3vw;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1.5vh;
+    cursor: pointer;
+    position: relative;
+    border-radius:1vh;
+}
+
+/* FOOTER */
+footer p {
+    color: white;
+    text-align: center;
+    opacity: 0.7;
+    font-size: calc(15px + 0.6vh);
+    letter-spacing: 1px;
 }
