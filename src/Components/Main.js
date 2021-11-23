@@ -2,7 +2,9 @@ import React from 'react'
 import Login from './Login.js'
 import Homepage from './Homepage.js'
 import Products from './Products.js'
+import AddProducts from './AddProducts.js'
 import { Routes, Route } from "react-router-dom";
+import Cashier from './Cashier.js'
 
 const Main = () => {
 
@@ -13,6 +15,8 @@ const Main = () => {
                     <Route exact path={`/`} element={<Homepage />} />
                     <Route path={`/Login`} element={<Login />} />
                     <Route path={`/Products`} element={<Products />} />
+                    <Route path={`/AddProducts`} element={<AddProducts />} />
+                    <Route path={`/Cashier`} element={<Cashier />} />
                 </Routes>
             </main>
         </div>

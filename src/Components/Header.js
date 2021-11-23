@@ -14,8 +14,8 @@ const Header = () => {
     return (
         <header className="header" style={{ height: "25vh", width: "100vw", backgroundColor: "#E7886A", overflow: "hidden" }}>
             <nav>
-                <a href="" id="heading-topic">HEADING</a>
-                <a href="" id="heading-logo"><img style={{ height: "4vh" }} src={AvenueLOGO} alt="" /></a>
+                <a href="/" id="heading-topic">HEADING</a>
+                <a href="/" id="heading-logo"><img style={{ height: "4vh" }} src={AvenueLOGO} alt="" /></a>
             </nav>
             <hr id="header-hr" />
             <div className="header-mainDiv">
