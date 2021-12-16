@@ -1,31 +1,56 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Link } from "react-router-dom"
+import Axios from 'axios';
 
-const Products = () => {
+const Products = (props) => {
+
+    const [P_Name,setP_Name]=useState('')
+    const [P_Code,setP_Code]=useState('')
+
+    const validateProduct = () => {
+        Axios.get('https://localhost:80/Avenue/Prod/:P_Code',{
+            P_Name:P_Code,
+            P_Code:P_Name,
+    }).then((response)=> {
+            if(response.data.message){
+                alert("Please enter a valid product Code");
+            }
+            else {
+                window.open('/ViewProduct');
+                return;
+            }
+        })
+    }
+
     return (
         <>
-            <div className="main-wrapper2">
-                <div className="main-products-wrapper">
-                    <div className="products-container">
-                        <form className="products-form" action="">
-                            <div className="products-heading">
-                                <h1>Products Details </h1>
-                            </div>
-                            <p align="center" for="ProductName">Product Name : <input type="text" id="ProductName" name="ProductName" /><br /></p>
-                            <p align="center" for="ProductCode">Product Code&nbsp; : <input type="ProductCode" id="ProductCode" name="ProductCode" /><br /></p>
-                            <div className="products-buttons">
-                                <button style={{marginLeft: "15vw"}}>Find Product</button>
-                                <button style={{marginRight: "15vw"}}>Add Product</button>
-                            </div>
-                        </form>
+            <div className="main-wrapper">
+                <div className="products-container">
+                    <div className="products-heading">
+                        <h1>Products Details </h1>
                     </div>
+                    <form className="products-form" action="">
+
+                        <p align="center" for="P_Name">Product Name : <input onChange={(e)=>setP_Name(e.target.value)} /><br /></p>
+                        <p align="center" for="P_Code">Product Code&nbsp; : <input onChange={(e)=>setP_Code(e.target.value)} /><br /></p>
+                        <div className="products-buttons">
+                        <button type="button" onClick={validateProduct}>Find Product</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div className="main-navigator">
-                <button className="button1">BUTTON 1</button>
-                <button className="button2">BUTTON 2</button>
+            <div className="products-buttons-out">
+            <div className="products-buttons">
+                <button style={{position: "relative", top: "-10vh" }}><Link className='button2-link' style={{color: "#000080"}} to="/AddProducts">Add Products</Link></button>
+            </div>
+            <div className="main-navigator product-navigator">
+                <button className="button1"><Link className='button1-link' to="/LoginSelection">BACK</Link></button>
+                <button className="button2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
             </div>
 
         </>
     )
 }
+
 export default Products

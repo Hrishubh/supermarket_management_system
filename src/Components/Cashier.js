@@ -10,7 +10,7 @@ const Cashier = () => {
                         <form className="products-form cashier-form" action="">
                             <p align="center" for="ProductName">Product Name : <input type="text" id="ProductName" name="ProductName" />
                                 <span id="cashier" style={{ display: "inline" }}>
-                                    <button type="submit" value="Post" ><img height="25vh" src={plus} alt="" /></button>
+                                    <button type="button" value="Post" ><img height="25vh" src={plus} alt="" /></button>
                                 </span>
                             </p>
                         </form>

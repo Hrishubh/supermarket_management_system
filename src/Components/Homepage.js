@@ -10,8 +10,8 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="main-navigator">
-                <button className="button1">BUTTON 2</button>
-                <button className="button2"><Link className='button2-link' to="/Login">LOGIN</Link></button>
+                <button className="button1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button className="button2"><Link className='button2-link' to="/LoginSelection">LOGIN</Link></button>
             </div>
         </>
     )
