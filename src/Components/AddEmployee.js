@@ -11,21 +11,27 @@ const AddEmployee = () => {
     const [Designation,setDesignation]=useState('')
     const [D_O_B,setD_O_B]=useState('')
 
-    const addEmployee = () => {
-        Axios.post('https://localhost:80/Avenue/Create/Emp',{
+    const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify({
             E_Name:E_Name,
             id:E_Id,
             Address:Address,
             Phone:Phone,
             Designation:Designation,
             D_O_B:D_O_B
-    }).then((response)=> {
-            if(response.data.message){
-                alert("Please enter Valid Details of the Employee");
+        })
+    };
+
+    const addEmployee = () => {
+        fetch('localhost/Avenue/Create/Emp',requestOptions).then((response)=> {
+            if(response.message){
+                alert("Please enter Valid Details of the Employee!");
             }
             else {
-                window.open('/Employee');
-                alert("The Employee was added!")
+                // Read point 3 on notes.txt
+                window.open('/Employee','_self');
+                alert("The Employee was added successfully!")
                 return;
             }
         })
@@ -50,7 +56,7 @@ const AddEmployee = () => {
             </div>
             <div className="main-navigator product-navigator">
                 <button className="button1"><Link className='button1-link' to="/Employee">BACK</Link></button>
-                <button className="button2">BUTTON 2</button>
+                <button className="button2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
             </div>
         </>
     )

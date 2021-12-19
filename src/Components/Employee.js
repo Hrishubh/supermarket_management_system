@@ -8,15 +8,15 @@ const Employee = () => {
     const [E_Id,setE_Id]=useState('')
 
     const validateEmployee = () => {
-        Axios.get('https://localhost:80/Avenue/Emp/:id',{
-            E_Name:E_Id,
-            id:E_Name,
+        fetch('localhost/Avenue/Emp/:id',{
+            E_Name:E_Name,
+            id:E_Id,
     }).then((response)=> {
-            if(response.data.message){
-                alert("Please enter valid Employee Details");
+            if(response.message){
+                alert("Please enter valid Employee Details!");
             }
             else {
-                window.open('/ViewEmployee');
+                window.open('/ViewEmployee','_self');
                 return;
             }
         })
@@ -44,8 +44,8 @@ const Employee = () => {
                 <button type="button" style={{position: "relative", top: "-10vh" }}><Link className='button2-link' style={{color: "#000080"}} to="/AddEmployee">ADD EMPLOYEE</Link></button>
             </div>
             <div className="main-navigator product-navigator">
-                <button className="button1"><Link className='button2-link' style={{color: "red"}} to="/Management">BACK</Link></button>
-                <button className="button2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button className="button1"><Link className='button1-link' to="/Management">BACK</Link></button>
+                <button className="button2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
             </div>
 

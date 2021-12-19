@@ -11,20 +11,25 @@ const EditProducts = () => {
     const [Description,setDescription]=useState('')
     const [P_Avail,setP_Avail]=useState('')
 
-    const EditProduct = () => {
-        Axios.put('https://localhost:80/Avenue/Prod/:P_Code',{
-            P_Name:P_Code,
-            P_Code:P_Name,
+    const requestOptions = {
+        method: 'PUT',
+        body: JSON.stringify({
+            P_Name:P_Name,
+            P_Code:P_Code,
             P_Price:P_Price,
             Description:Description,
             P_Avail:P_Avail
-    }).then((response)=> {
-            if(response.data.message){
-                alert(`Cannot update product with code=${P_Code}. Maybe product was not found or entered details are not valid!`);
+        })
+    };
+
+    const EditProduct = () => {
+        fetch('localhost/Avenue/Prod/:P_Code',requestOptions).then((response)=> {
+            if(response.message == 'Product was updated successfully.'){
+                window.open('/Products','_self');
+                alert("The Product was Updated successfully!")
             }
             else {
-                window.open('/Products');
-                alert("The Product was Updated!")
+                alert(response.message);
                 return;
             }
         })
@@ -49,8 +54,8 @@ const EditProducts = () => {
             </div>
 
             <div className="main-navigator product-navigator">
-                <button className="button1"><Link className='button1-link' to="/">BACK</Link></button>
-                <button className="button2">BUTTON 2</button>
+                <button className="button1"><Link className='button1-link' to="/ViewProduct">BACK</Link></button>
+                <button className="button2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
             </div>
         </>
     )

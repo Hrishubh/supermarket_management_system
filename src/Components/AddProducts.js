@@ -10,20 +10,26 @@ const AddProducts = () => {
     const [Description,setDescription]=useState('')
     const [P_Avail,setP_Avail]=useState('')
 
-    const addProduct = () => {
-        Axios.post('https://localhost:80/Avenue/Create/Prod',{
+    const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify({
             P_Name:P_Name,
             P_Code:P_Code,
             P_Price:P_Price,
             Description:Description,
             P_Avail:P_Avail
-    }).then((response)=> {
-            if(response.data.message){
+        })
+    };
+
+    const addProduct = () => {
+        fetch('localhost/Avenue/Create/Prod',requestOptions).then((response)=> {
+            if(response.message){
                 alert("Please enter Valid Details");
             }
             else {
-                window.open('/Products');
-                alert("The Product was added!")
+                // Read point 2 on notes.txt
+                window.open('/Products','_self');
+                alert("The Product was added successfully!")
                 return;
             }
         })

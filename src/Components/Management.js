@@ -22,7 +22,7 @@ const Management = () => {
                 </div>
             </div>
             <div className="main-navigator">
-                <button className="button1"><Link className='button1-link' to="/">BACK</Link></button>
+                <button className="button1"><Link className='button1-link' to="/LoginSelection">BACK</Link></button>
                 <button className="button2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
             </div>
         </>

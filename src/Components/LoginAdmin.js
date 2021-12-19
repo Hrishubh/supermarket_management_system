@@ -9,15 +9,18 @@ const LoginAdmin = () => {
     const [passwordLoginAdmin,setpasswordLoginAdmin]=useState('')
 
     const validateLoginAdmin = () => {
-        Axios.get('https://localhost:80/Avenue/Admin',{
+        fetch('localhost/Avenue/Admin',{
             username:usernameLoginAdmin,
             password:passwordLoginAdmin,
     }).then((response)=> {
-            if(response.data.message){
-                alert("Please enter the correct username and password");
+            if(response.message == "Login Successful"){
+                window.open('/Management','_self');
+            }
+            else if (response.message == "Some error occurred while retrieving data.") {
+                alert("Some error occurred while retrieving data, Please try again later!")
             }
             else {
-                window.open('/Management');
+                alert("Please enter the correct Username and/or Password");
             }
         })
     }

@@ -8,15 +8,15 @@ const Products = (props) => {
     const [P_Code,setP_Code]=useState('')
 
     const validateProduct = () => {
-        Axios.get('https://localhost:80/Avenue/Prod/:P_Code',{
-            P_Name:P_Code,
-            P_Code:P_Name,
+        fetch('localhost/Avenue/Prod/:P_Code',{
+            Name:P_Name,
+            Code:P_Code,
     }).then((response)=> {
-            if(response.data.message){
-                alert("Please enter a valid product Code");
+            if(response.message){
+                alert("Please enter a valid Product Code!");
             }
             else {
-                window.open('/ViewProduct');
+                window.open('/ViewProduct','_self');
                 return;
             }
         })
