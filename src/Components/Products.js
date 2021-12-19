@@ -8,7 +8,7 @@ const Products = (props) => {
     const [P_Code,setP_Code]=useState('')
 
     const validateProduct = () => {
-        fetch('localhost/Avenue/Prod/:P_Code',{
+        fetch('localhost/Avenue/ProdBycode',{
             Name:P_Name,
             Code:P_Code,
     }).then((response)=> {

@@ -8,7 +8,7 @@ const Employee = () => {
     const [E_Id,setE_Id]=useState('')
 
     const validateEmployee = () => {
-        fetch('localhost/Avenue/Emp/:id',{
+        fetch('localhost/Avenue/EmpByid',{
             E_Name:E_Name,
             id:E_Id,
     }).then((response)=> {
