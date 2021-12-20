@@ -6,19 +6,23 @@ const Products = (props) => {
 
     const [P_Name,setP_Name]=useState('')
     const [P_Code,setP_Code]=useState('')
+    const myInit = {
+        method: 'GET',
+        cache: 'default',
+        body: JSON.stringify({
+            P_Code:P_Code,
+        })
+      };
 
     const validateProduct = () => {
-        fetch('localhost/Avenue/ProdBycode',{
-            Name:P_Name,
-            Code:P_Code,
-    }).then((response)=> {
-            if(response.message){
-                alert("Please enter a valid Product Code!");
-            }
-            else {
-                window.open('/ViewProduct','_self');
-                return;
-            }
+        fetch('http://localhost:3001/api/product/',{
+            productID:P_Code,
+        },myInit, {mode:'cors'})
+        .then((response)=> {
+            console.log(response)
+        })
+        .catch(error => {
+            console.error()
         })
     }
 

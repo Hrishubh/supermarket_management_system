@@ -12,17 +12,22 @@ const AddProducts = () => {
 
     const requestOptions = {
         method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        },
         body: JSON.stringify({
-            P_Name:P_Name,
-            P_Code:P_Code,
-            P_Price:P_Price,
-            Description:Description,
-            P_Avail:P_Avail
+            name:P_Name,
+            productID:P_Code,
+            nextArrival:P_Price,
+            description:Description,
+            availableUnits:P_Avail
         })
     };
 
     const addProduct = () => {
-        fetch('localhost/Avenue/Create/Prod',requestOptions).then((response)=> {
+        fetch('http://localhost/Avenue/Create/Prod',requestOptions).then((response)=> {
             if(response.message){
                 alert("Please enter Valid Details");
             }

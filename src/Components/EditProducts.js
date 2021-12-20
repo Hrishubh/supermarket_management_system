@@ -13,6 +13,11 @@ const EditProducts = () => {
 
     const requestOptions = {
         method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        },
         body: JSON.stringify({
             P_Name:P_Name,
             P_Code:P_Code,
@@ -23,7 +28,7 @@ const EditProducts = () => {
     };
 
     const EditProduct = () => {
-        fetch('localhost/Avenue/Prod/:P_Code',requestOptions).then((response)=> {
+        fetch('localhost/Avenue/ProdUp',requestOptions).then((response)=> {
             if(response.message == 'Product was updated successfully.'){
                 window.open('/Products','_self');
                 alert("The Product was Updated successfully!")

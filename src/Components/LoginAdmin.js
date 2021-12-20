@@ -5,14 +5,15 @@ import Axios from 'axios';
 
 const LoginAdmin = () => {
 
-    const [usernameLoginAdmin,setusernameLoginAdmin]=useState('')
-    const [passwordLoginAdmin,setpasswordLoginAdmin]=useState('')
+    const [usernameAdmin,setusernameAdmin]=useState('')
+    const [passwordAdmin,setpasswordAdmin]=useState('')
 
-    const validateLoginAdmin = () => {
+    const validateAdmin = () => {
         fetch('localhost/Avenue/Admin',{
-            username:usernameLoginAdmin,
-            password:passwordLoginAdmin,
-    }).then((response)=> {
+            username:usernameAdmin,
+            password:passwordAdmin,
+        })
+        .then((response)=> {
             if(response.message == "Login Successful"){
                 window.open('/Management','_self');
             }
@@ -34,9 +35,9 @@ const LoginAdmin = () => {
                             <h1>Login Details&nbsp; </h1>
                             <img src={LoginImg} alt="" />
                         </div>
-                        <p align="center" for="username">Username : <input onChange={(e)=>setusernameLoginAdmin(e.target.value)}/><br /></p>
-                        <p align="center" for="password">Password&nbsp; : <input onChange={(e)=>setpasswordLoginAdmin(e.target.value)}/><br /></p>
-                        <div><button type="button" onClick={validateLoginAdmin}>LOGIN</button></div>
+                        <p align="center" for="username">Username : <input onChange={(e)=>setusernameAdmin(e.target.value)}/><br /></p>
+                        <p align="center" for="password">Password&nbsp; : <input onChange={(e)=>setpasswordAdmin(e.target.value)}/><br /></p>
+                        <div><button type="button" onClick={validateAdmin}>LOGIN</button></div>
                     </form>
                 </div>
             </div>

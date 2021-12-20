@@ -13,6 +13,11 @@ const AddEmployee = () => {
 
     const requestOptions = {
         method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        },
         body: JSON.stringify({
             E_Name:E_Name,
             id:E_Id,
