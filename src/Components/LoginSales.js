@@ -35,7 +35,7 @@ const LoginSales = () => {
                             <img src={LoginImg} alt="" />
                         </div>
                         <p align="center" for="username">Username : <input onChange={(e)=>setusernameLoginSales(e.target.value)}/><br /></p>
-                        <p align="center" for="password">Password&nbsp; : <input onChange={(e)=>setpasswordLoginSales(e.target.value)}/><br /></p>
+                        <p align="center" for="password">Password&nbsp; : <input type="password" onChange={(e)=>setpasswordLoginSales(e.target.value)}/><br /></p>
                         <div><button type="button" onClick={validateLoginSales}>LOGIN</button></div>
                     </form>
                 </div>

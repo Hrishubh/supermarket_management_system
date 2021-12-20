@@ -36,7 +36,7 @@ const LoginAdmin = () => {
                             <img src={LoginImg} alt="" />
                         </div>
                         <p align="center" for="username">Username : <input onChange={(e)=>setusernameAdmin(e.target.value)}/><br /></p>
-                        <p align="center" for="password">Password&nbsp; : <input onChange={(e)=>setpasswordAdmin(e.target.value)}/><br /></p>
+                        <p align="center" for="password">Password&nbsp; : <input type="password" onChange={(e)=>setpasswordAdmin(e.target.value)}/><br /></p>
                         <div><button type="button" onClick={validateAdmin}>LOGIN</button></div>
                     </form>
                 </div>

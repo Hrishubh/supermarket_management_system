@@ -35,7 +35,7 @@ const LoginCashier = () => {
                             <img src={LoginImg} alt="" />
                         </div>
                         <p align="center" for="username">Username : <input onChange={(e)=>setusernameLoginCashier(e.target.value)}/><br /></p>
-                        <p align="center" for="password">Password&nbsp; : <input onChange={(e)=>setpasswordLoginCashier(e.target.value)}/><br /></p>
+                        <p align="center" for="password">Password&nbsp; : <input type="password" onChange={(e)=>setpasswordLoginCashier(e.target.value)}/><br /></p>
                         <div><button type="button" onClick={validateLoginCashier}>LOGIN</button></div>
                     </form>
                 </div>
