@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import { Link } from "react-router-dom"
-import Axios from 'axios';
 
 const AddEmployee = () => {
 
@@ -29,7 +28,7 @@ const AddEmployee = () => {
     };
 
     const addEmployee = () => {
-        fetch('localhost/Avenue/Create/Emp',requestOptions).then((response)=> {
+        fetch('http://localhost/Avenue/Create/Emp',requestOptions).then((response)=> {
             if(response.message){
                 alert("Please enter Valid Details of the Employee!");
             }

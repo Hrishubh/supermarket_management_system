@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom"
-import Axios from 'axios';
 
 const AddProducts = () => {
 
@@ -14,15 +13,15 @@ const AddProducts = () => {
         method: 'POST',
         mode: 'cors',
         headers: {
-            'Content-Type': "application/json",
-            'Accept': "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
         body: JSON.stringify({
-            name:P_Name,
-            productID:P_Code,
-            nextArrival:P_Price,
-            description:Description,
-            availableUnits:P_Avail
+            P_Name:P_Name,
+            P_Code:P_Code,
+            Description:Description,
+            P_Price:P_Price,
+            P_Avail:P_Avail
         })
     };
 

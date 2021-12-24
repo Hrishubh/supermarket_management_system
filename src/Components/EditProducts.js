@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom";
-import Axios from 'axios';
+import { Link } from "react-router-dom"
 
 
 const EditProducts = () => {
@@ -21,15 +20,15 @@ const EditProducts = () => {
         body: JSON.stringify({
             P_Name:P_Name,
             P_Code:P_Code,
-            P_Price:P_Price,
             Description:Description,
-            P_Avail:P_Avail
+            P_Avail:P_Avail,
+            P_Price:P_Price
         })
     };
 
     const EditProduct = () => {
-        fetch('localhost/Avenue/ProdUp',requestOptions).then((response)=> {
-            if(response.message == 'Product was updated successfully.'){
+        fetch('http://localhost/Avenue/ProdUp',requestOptions).then((response)=> {
+            if(response.status===200){
                 window.open('/Products','_self');
                 alert("The Product was Updated successfully!")
             }

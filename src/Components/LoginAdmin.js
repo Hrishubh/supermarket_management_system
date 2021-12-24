@@ -1,27 +1,31 @@
 import React, {useState} from 'react'
 import LoginImg from '.././Images/Login.png'
 import { Link } from "react-router-dom";
-import Axios from 'axios';
 
 const LoginAdmin = () => {
 
     const [usernameAdmin,setusernameAdmin]=useState('')
     const [passwordAdmin,setpasswordAdmin]=useState('')
 
-    const validateAdmin = () => {
-        fetch('localhost/Avenue/Admin',{
-            username:usernameAdmin,
-            password:passwordAdmin,
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            username: usernameAdmin,
+            password: passwordAdmin
         })
-        .then((response)=> {
-            if(response.message == "Login Successful"){
-                window.open('/Management','_self');
+    };
+    const validateAdmin = () => {
+        fetch('http://localhost/Avenue/Admin',requestOptions).then((response)=> {
+            if(response.status===400){
+                alert("Please enter the correct username and password");
             }
-            else if (response.message == "Some error occurred while retrieving data.") {
-                alert("Some error occurred while retrieving data, Please try again later!")
-            }
-            else {
-                alert("Please enter the correct Username and/or Password");
+            else if (response.status===200){
+                window.open('/Management');
             }
         })
     }

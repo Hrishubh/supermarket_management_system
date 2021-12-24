@@ -25,7 +25,7 @@ import Management from './Management.js'
 import Employee from './Employee.js'
 import ProductsList from './ProductsList.js'
 import EmployeeList from './EmployeeList.js'
-import ViewProduct from './ViewProduct.js'
+// import ViewProduct from './ViewProduct.js'
 import ViewEmployee from './ViewEmployee.js'
 
 const Main = () => {
@@ -82,7 +82,7 @@ const Main = () => {
                         <Route path={`/ProductsList`} element={<ProductsList />} />
                         <Route path={`/EmployeeList`} element={<EmployeeList />} />
                         <Route path={`/AddEmployee`} element={<AddEmployee />} />
-                        <Route path={`/ViewProduct`} element={<ViewProduct />} />
+                        {/* <Route path={`/ViewProduct`} element={<ViewProduct />} /> */}
                         <Route path={`/ViewEmployee`} element={<ViewEmployee />} />
 
                     </Routes>

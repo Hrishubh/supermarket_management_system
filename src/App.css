@@ -749,4 +749,9 @@ footer p {
           transform: translateX(-50%);
   top: 76vh;
 }
+
+.mystyle {
+  visibility: hidden;
+  position: fixed;
+}
 /*# sourceMappingURL=App.css.map */
