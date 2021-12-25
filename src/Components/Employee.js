@@ -43,15 +43,15 @@ const Employee = () => {
             }
         })
         
-        setcheck(true)
-        {var element = document.getElementById("main-wrapper");
-        element.classList.add("mystyle");
-        element = document.getElementById("mystyle2");
-        element.classList.add("mystyle");
-        element = document.getElementById("check1");
-        element.classList.remove("mystyle");
-        element = document.getElementById("check2");
-        element.classList.remove("mystyle");}
+        // setcheck(true)
+        // {var element = document.getElementById("main-wrapper");
+        // element.classList.add("mystyle");
+        // element = document.getElementById("mystyle2");
+        // element.classList.add("mystyle");
+        // element = document.getElementById("check1");
+        // element.classList.remove("mystyle");
+        // element = document.getElementById("check2");
+        // element.classList.remove("mystyle");}
     }
 
     const back = () => {

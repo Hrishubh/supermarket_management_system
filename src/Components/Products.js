@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom"
 
-import ViewProduct from './ViewProduct.js'
-
 const Products = (props) => {
 
     const [P_Name,setP_Name]=useState('')
     const [P_Code,setP_Code]=useState('')
     const [data, setdata] = useState('')
-    const [check,setcheck] = useState(false)
 
     const requestOptions = {
         method: 'POST',
@@ -30,11 +27,9 @@ const Products = (props) => {
             }
             else if(response.status===200){
                 // window.open('/ViewProduct','_self');
-                setcheck(true)
-                setdata(response)
                 {var element = document.getElementById("main-wrapper");
                 element.classList.add("mystyle");}
-                {var element = document.getElementById("mystyle2");
+                {element = document.getElementById("mystyle2");
                 element.classList.add("mystyle");}
                 {element = document.getElementById("check1");
                 element.classList.remove("mystyle");
@@ -43,7 +38,6 @@ const Products = (props) => {
                 return;
             }  
         })
-        setcheck(true)
         {var element = document.getElementById("main-wrapper");
         element.classList.add("mystyle");
         element = document.getElementById("mystyle2");

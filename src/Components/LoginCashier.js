@@ -21,11 +21,11 @@ const LoginCashier = () => {
     };
     const validateLoginCashier = () => {
         fetch('http://localhost/Avenue/Cashier',requestOptions).then((response)=> {
-            if(response.status===400){
-                alert("Please enter the correct username and password");
+            if (response.status===200){
+                window.open('/Cashier','_self');
             }
-            else if (response.status===200){
-                window.open('/Management');
+            else{
+                alert("Please enter the correct username and password");
             }
         })
     }

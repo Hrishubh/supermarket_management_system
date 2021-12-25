@@ -8,7 +8,6 @@ const AddProducts = () => {
     const [P_Price,setP_Price]=useState('')
     const [Description,setDescription]=useState('')
     const [P_Avail,setP_Avail]=useState('')
-
     const requestOptions = {
         method: 'POST',
         mode: 'cors',

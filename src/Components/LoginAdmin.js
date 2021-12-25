@@ -21,11 +21,11 @@ const LoginAdmin = () => {
     };
     const validateAdmin = () => {
         fetch('http://localhost/Avenue/Admin',requestOptions).then((response)=> {
-            if(response.status===400){
-                alert("Please enter the correct username and password");
+            if (response.status===200){
+                window.open('/Management','_self');
             }
-            else if (response.status===200){
-                window.open('/Management');
+            else{
+                alert("Please enter the correct username and password");
             }
         })
     }
@@ -39,10 +39,11 @@ const LoginAdmin = () => {
                             <h1>Login Details&nbsp; </h1>
                             <img src={LoginImg} alt="" />
                         </div>
-                        <p align="center" for="username">Username : <input onChange={(e)=>setusernameAdmin(e.target.value)}/><br /></p>
-                        <p align="center" for="password">Password&nbsp; : <input type="password" onChange={(e)=>setpasswordAdmin(e.target.value)}/><br /></p>
+                        <p align="center" htmlFor="username">Username : <input onChange={(e)=>setusernameAdmin(e.target.value)}/><br /></p>
+                        <p align="center" htmlFor="password">Password&nbsp; : <input type="password" onChange={(e)=>setpasswordAdmin(e.target.value)}/><br /></p>
                         <div><button type="button" onClick={validateAdmin}>LOGIN</button></div>
                     </form>
+                    {console.log("Hello")}
                 </div>
             </div>
             <div className="main-navigator">
