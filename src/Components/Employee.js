@@ -7,7 +7,6 @@ const Employee = () => {
     const [E_Name,setE_Name]=useState('')
     const [E_Id,setE_Id]=useState('')
     const [data, setdata] = useState('')
-    const [check,setcheck] = useState(false)
 
     const requestOptions = {
         method: 'POST',
@@ -28,8 +27,10 @@ const Employee = () => {
                 alert("Please enter valid Employee Details!");
             }
             else if(response.status===200){
+                response.json().then(function(data) {
+                    setdata(data);
+                });
                 // window.open('/ViewEmployee','_self');
-                setcheck(true)
                 setdata(response)
                 {var element = document.getElementById("main-wrapper");
                 element.classList.add("mystyle");}
@@ -65,7 +66,7 @@ const Employee = () => {
                 <div className="view-employee-container ">
                     <form className="view-employee-form" action="">
                         <p align="center" for="EName">Employee Name : <input disabled value={data.E_Name} type="text" id="EName" name="EName" /><br /></p>
-                        <p align="center" for="Ecode">Employee Code &nbsp;: <input disabled value={data.E_Code} type="text" id="Ecode" name="Ecode" /><br /></p>
+                        <p align="center" for="Ecode">Employee Code &nbsp;: <input disabled value={data.id} type="text" id="Ecode" name="Ecode" /><br /></p>
                         <p align="center" for="Eaddress">Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input disabled value={data.Address} type="text" id="Eaddress" name="Eaddress" /><br /></p>
                         <p align="center" for="Econtact">Contact Number : <input disabled value={data.Phone} type="text" id="Econtact" name="Econtact" /><br /></p>
                         <p align="center" for="Edesignation">Designation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input disabled value={data.Designation} type="text" id="Edesignation" name="Edesignation" /><br /></p>
@@ -77,7 +78,6 @@ const Employee = () => {
                 <button className="button1" style={{cursor: 'pointer'}}  onClick={back}>BACK</button>
                 <button className="button2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
             </div>
-
 
 
 

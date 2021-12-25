@@ -7,6 +7,7 @@ const Products = (props) => {
     const [P_Code,setP_Code]=useState('')
     const [data, setdata] = useState('')
 
+
     const requestOptions = {
         method: 'POST',
         mode: 'cors',
@@ -25,7 +26,10 @@ const Products = (props) => {
             if(response.status===404){
                 alert("Please enter valid Product Details!");
             }
-            else if(response.status===200){
+            if(response.status===200){
+                response.json().then(function(data) {
+                    setdata(data);
+                });
                 // window.open('/ViewProduct','_self');
                 {var element = document.getElementById("main-wrapper");
                 element.classList.add("mystyle");}
@@ -38,14 +42,14 @@ const Products = (props) => {
                 return;
             }  
         })
-        {var element = document.getElementById("main-wrapper");
-        element.classList.add("mystyle");
-        element = document.getElementById("mystyle2");
-        element.classList.add("mystyle");
-        element = document.getElementById("check1");
-        element.classList.remove("mystyle");
-        element = document.getElementById("check2");
-        element.classList.remove("mystyle");}
+        // {var element = document.getElementById("main-wrapper");
+        // element.classList.add("mystyle");
+        // element = document.getElementById("mystyle2");
+        // element.classList.add("mystyle");
+        // element = document.getElementById("check1");
+        // element.classList.remove("mystyle");
+        // element = document.getElementById("check2");
+        // element.classList.remove("mystyle");}
         
     }
     

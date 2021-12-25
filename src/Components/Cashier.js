@@ -1,41 +1,57 @@
-import React,{useState,useReducer} from 'react'
+import React,{useState } from 'react'
+import { Component } from 'react'
 import plus from ".././Images/plus.png"
 import { Link } from "react-router-dom"
 import * as ReactBootStrap from 'react-bootstrap'
-import mockData from "./mock-data.json"
+
+
+
 const Cashier = () => {
     let rows = []
-    const [changed,setchanged] = useState(rows)
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+    const [changed,setchanged] = useState([])
+    const [P_Code,setP_Code]=useState('')
+    const [data, setdata]= useState('')
 
-    var a=1;
-    const reloadfxn =  () => {
-        let array={};
-        if(true){
-            array = {
-                name: "Amul Milk"+a, 
-                code: 12, 
-                quantity: 5, 
-                price: 232345 
-            }
-        }
-        addRows(array)
-        console.log(array)
-        console.log(rows)
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            P_Code:P_Code,
+        })
     };
 
-    const addRows = (rowAdded) => {
+    const validateProduct = () => {
+        fetch('http://localhost/Avenue/ProdBycode',requestOptions).then((response)=> {
+            if(response.status===404){
+                alert("Please enter valid Product Details!");
+            }
+            if(response.status===200){
+                response.json().then(function(data) {
+                    setdata(data);
+                    addrows(data);
+                });
+                return;
+            }  
+        })
+    }
+
+    const addrows = (rowAdded) => {
         rows.push(
             {   
-                name: rowAdded.name,
-                code: rowAdded.code,
+                name: rowAdded.P_Name,
+                code: rowAdded.P_Code,
                 quantity: rowAdded.quantity,
-                price: rowAdded.price
+                price: rowAdded.P_Price
             } 
         )
         setchanged(rows)
-        forceUpdate();
-    };
+        Component.forceUpdate();
+    }
+  
 
     return (
         <>
@@ -43,9 +59,9 @@ const Cashier = () => {
                 <div className="main-cashier-wrapper">
                     <div className="cashier-container">
                         <form className="products-form cashier-form" action="">
-                            <p align="center" htmlFor="ProductName">Product Name : <input type="text" id="ProductName" name="ProductName" />
+                            <p align="center" htmlFor="ProductName">Product Code : <input onChange={(e)=>setP_Code(e.target.value)} type="text" id="P_Code" name="P_Code" />
                                 <span id="cashier" style={{ display: "inline" }}>
-                                    <button onClick={reloadfxn} type="button" value="Post" ><img height="25vh" src={plus} alt="" /></button>
+                                    <button onClick={validateProduct} type="button" value="Post" ><img height="25vh" src={plus} alt="" /></button>
                                 </span>
                             </p>
                         </form>
