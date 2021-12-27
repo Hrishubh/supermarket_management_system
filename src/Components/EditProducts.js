@@ -11,7 +11,7 @@ const EditProducts = () => {
     const [P_Avail,setP_Avail]=useState('')
 
     const requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         mode: 'cors',
         headers: {
             'Content-Type': "application/json",
